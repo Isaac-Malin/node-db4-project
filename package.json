@@ -2,8 +2,10 @@
   "name": "node-db4-project",
   "version": "1.0.0",
   "scripts": {
+    "server": "nodemon index.js",
     "migrate": "knex migrate:latest",
-    "seed": "knex run:seed"
+    "seed": "knex run:seed",
+    "rollback": "knex migrate:rollback"
   },
   "repository": {
     "type": "git",
@@ -13,6 +15,7 @@
     "eslint": "^9.0.0",
     "express": "^4.19.2",
     "knex": "^3.1.0",
+    "nodemon": "^3.1.0",
     "sqlite3": "^5.1.7"
   }
 }
