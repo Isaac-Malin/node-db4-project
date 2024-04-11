@@ -5,7 +5,6 @@ const { checkRecipeId }  = require('./recipe-middleware')
 router.get('/:recipe_id', checkRecipeId, (req, res, next) => {
   Recipe.getById(req.params.recipe_id)
     .then(recipe => {
-      throw new Error('ARRGGGHHHHH')
       res.status(200).json(recipe)
     })
     .catch(err => {
