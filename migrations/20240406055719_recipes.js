@@ -6,23 +6,17 @@ exports.up = async function(knex) {
   await knex.schema
   .createTable('recipes', tbl => {
     tbl.increments('recipe_id')
-    tbl.string("recipe_name", 128)
-      .notNullable()
-      .unique()
+    tbl.string("recipe_name", 128).notNullable().unique()
   })
   .createTable('ingredients', tbl => {
     tbl.increments('ingredient_id')
-    tbl.string('ingredient_name', 128)
-      .notNullable()
-      .unique()
+    tbl.string('ingredient_name', 128).notNullable().unique()
+    tbl.string('ingredient_unit', 50)
   })
   .createTable('steps', tbl => {
     tbl.increments('step_id')
-    tbl.integer('step_order')
-      .notNullable()
-      .unsigned()
-    tbl.string('step_text')
-      .notNullable()
+    tbl.string('step_text').notNullable()
+    tbl.integer('step_number').notNullable().unsigned()
     tbl.integer('recipe_id')
       .unsigned()
       .notNullable()
@@ -32,7 +26,7 @@ exports.up = async function(knex) {
       .onUpdate('RESTRICT')
   })
   .createTable('step_ingredients', tbl => {
-    tbl.increments('step_ingr')
+    tbl.increments('step_ingredient_id')
     tbl.integer('step_id')
       .unsigned()
       .notNullable()
@@ -57,9 +51,9 @@ exports.up = async function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = async function(knex) {
-  // await knex.schema
-  // .dropTableIfExists()
-  // .dropTableIfExists()
-  // .dropTableIfExists()
-  // .dropTableIfExists()
+  await knex.schema
+  .dropTableIfExists('step_ingredients')
+  .dropTableIfExists('steps')
+  .dropTableIfExists('ingredients')
+  .dropTableIfExists('recipes')
 };

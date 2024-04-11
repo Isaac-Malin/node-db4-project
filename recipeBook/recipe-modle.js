@@ -1,8 +1,9 @@
+const db = require('../db-config')
 
-export function getAll() {
-
+function getById(recipe_id) {
+  return Promise.resolve(`awesome recipe with id ${recipe_id}`)
 }
 
-export function getById() {
-
+module.exports = {
+  getById
 }
