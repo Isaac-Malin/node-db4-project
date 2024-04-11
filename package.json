@@ -5,7 +5,8 @@
     "server": "nodemon index.js",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
-    "rollback": "knex migrate:rollback"
+    "rollback": "knex migrate:rollback",
+    "cleanup": "knex seed:run --specific=01-cleanup.js"
   },
   "repository": {
     "type": "git",
