@@ -18,9 +18,14 @@ const step_ingredients = [
   { step_id: 3, ingredient_id: 2, quantity: 2},
   // Lemon Chicken With Rice
   { step_id: 6, ingredient_id: 3, quantity: 1},
+  { step_id: 6, ingredient_id: 1, quantity: 2},
+  { step_id: 6, ingredient_id: 2, quantity: 2},
+
   // Salmon Rice Bowls and Zucchini
   { step_id: 8, ingredient_id: 4, quantity: 1},
-  { step_id: 9, ingredient_id: 5, quantity: 1}
+  { step_id: 9, ingredient_id: 5, quantity: 1},
+  { step_id: 9, ingredient_id: 2, quantity: 1},
+  { step_id: 9, ingredient_id: 4, quantity: 1}
 ]
 
 const steps = [
